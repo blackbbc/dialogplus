@@ -95,7 +95,11 @@ public class DialogPlus {
      * nexus device. I think it should be tested on different devices but in my opinion is the way to go.
      * @link http://stackoverflow.com/questions/4486034/get-root-view-from-current-activity
      */
-    decorView = (ViewGroup) activity.getWindow().getDecorView().findViewById(android.R.id.content);
+    if (builder.isAddToRoot()) {
+        decorView = (ViewGroup) ((ViewGroup) activity.getWindow().getDecorView().findViewById(android.R.id.content)).getChildAt(0);
+    } else {
+        decorView = (ViewGroup) activity.getWindow().getDecorView().findViewById(android.R.id.content);
+    }
     rootView = (ViewGroup) layoutInflater.inflate(R.layout.base_container, decorView, false);
     rootView.setLayoutParams(builder.getOutmostLayoutParams());
 
@@ -375,4 +379,11 @@ public class DialogPlus {
       return false;
     }
   };
+
+    public void onSizeChanged(int width, int height) {
+//        ViewGroup.LayoutParams params = rootView.getLayoutParams();
+//        params.width = width;
+//        params.height = height;
+//        rootView.setLayoutParams(params);
+    }
 }

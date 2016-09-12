@@ -42,6 +42,7 @@ public class DialogPlusBuilder {
   private int inAnimation = INVALID;
   private int outAnimation = INVALID;
   private boolean expanded;
+  private boolean addToRoot;
   private int defaultContentHeight;
   private int overlayBackgroundResource = R.color.dialogplus_black_overlay;
 
@@ -124,6 +125,15 @@ public class DialogPlusBuilder {
   @Deprecated public DialogPlusBuilder setBackgroundColorResId(int resourceId) {
     return setContentBackgroundResource(resourceId);
   }
+
+    public DialogPlusBuilder addToRoot(boolean addToRoot) {
+        this.addToRoot = addToRoot;
+        return this;
+    }
+
+    public boolean isAddToRoot() {
+        return this.addToRoot;
+    }
 
   /**
    * Set background color for your dialog. If no resource is passed 'white' will be used
