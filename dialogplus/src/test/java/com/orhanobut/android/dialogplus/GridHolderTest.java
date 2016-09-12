@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import com.orhanobut.dialogplus.BuildConfig;
 import com.orhanobut.dialogplus.GridHolder;
 import com.orhanobut.dialogplus.HolderAdapter;
-import com.orhanobut.dialogplus.OnHolderListener;
+import com.orhanobut.dialogplus.listener.OnHolderListener;
 import com.orhanobut.dialogplus.R;
 
 import org.junit.Before;

@@ -1,4 +1,6 @@
-package com.orhanobut.dialogplus;
+package com.orhanobut.dialogplus.listener;
+
+import com.orhanobut.dialogplus.DialogPlus;
 
 public interface OnBackPressListener {
 

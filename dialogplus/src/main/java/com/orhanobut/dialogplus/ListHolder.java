@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.orhanobut.dialogplus.listener.OnHolderListener;
+
 public class ListHolder implements HolderAdapter, AdapterView.OnItemClickListener {
 
   private int backgroundResource;

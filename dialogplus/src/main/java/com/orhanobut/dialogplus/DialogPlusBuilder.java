@@ -11,6 +11,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 
+import com.orhanobut.dialogplus.listener.OnBackPressListener;
+import com.orhanobut.dialogplus.listener.OnCancelListener;
+import com.orhanobut.dialogplus.listener.OnClickListener;
+import com.orhanobut.dialogplus.listener.OnDismissListener;
+import com.orhanobut.dialogplus.listener.OnItemClickListener;
+import com.orhanobut.dialogplus.listener.OnShowListener;
+
 import java.util.Arrays;
 
 public class DialogPlusBuilder {
@@ -34,6 +41,7 @@ public class DialogPlusBuilder {
   private OnDismissListener onDismissListener;
   private OnCancelListener onCancelListener;
   private OnBackPressListener onBackPressListener;
+  private OnShowListener onShowListener;
 
   private boolean isCancelable = true;
   private int contentBackgroundResource = android.R.color.white;
@@ -226,6 +234,11 @@ public class DialogPlusBuilder {
     return this;
   }
 
+  public DialogPlusBuilder setOnShowListener(OnShowListener listener) {
+      this.onShowListener = listener;
+      return this;
+  }
+
   public DialogPlusBuilder setOnDismissListener(OnDismissListener listener) {
     this.onDismissListener = listener;
     return this;
@@ -336,6 +349,10 @@ public class DialogPlusBuilder {
 
   public OnDismissListener getOnDismissListener() {
     return onDismissListener;
+  }
+
+  public OnShowListener getOnShowListener() {
+      return onShowListener;
   }
 
   public OnCancelListener getOnCancelListener() {

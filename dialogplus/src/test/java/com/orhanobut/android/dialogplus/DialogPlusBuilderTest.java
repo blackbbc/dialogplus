@@ -14,11 +14,11 @@ import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.DialogPlusBuilder;
 import com.orhanobut.dialogplus.GridHolder;
 import com.orhanobut.dialogplus.ListHolder;
-import com.orhanobut.dialogplus.OnBackPressListener;
-import com.orhanobut.dialogplus.OnCancelListener;
-import com.orhanobut.dialogplus.OnClickListener;
-import com.orhanobut.dialogplus.OnDismissListener;
-import com.orhanobut.dialogplus.OnItemClickListener;
+import com.orhanobut.dialogplus.listener.OnBackPressListener;
+import com.orhanobut.dialogplus.listener.OnCancelListener;
+import com.orhanobut.dialogplus.listener.OnClickListener;
+import com.orhanobut.dialogplus.listener.OnDismissListener;
+import com.orhanobut.dialogplus.listener.OnItemClickListener;
 import com.orhanobut.dialogplus.R;
 import com.orhanobut.dialogplus.ViewHolder;
 

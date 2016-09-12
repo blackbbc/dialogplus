@@ -14,6 +14,14 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 
+import com.orhanobut.dialogplus.listener.OnBackPressListener;
+import com.orhanobut.dialogplus.listener.OnCancelListener;
+import com.orhanobut.dialogplus.listener.OnClickListener;
+import com.orhanobut.dialogplus.listener.OnDismissListener;
+import com.orhanobut.dialogplus.listener.OnHolderListener;
+import com.orhanobut.dialogplus.listener.OnItemClickListener;
+import com.orhanobut.dialogplus.listener.OnShowListener;
+
 public class DialogPlus {
 
   private static final int INVALID = -1;
@@ -64,6 +72,11 @@ public class DialogPlus {
   private final OnBackPressListener onBackPressListener;
 
   /**
+   * Listener to notify on show
+   */
+  private final OnShowListener onShowListener;
+
+  /**
    * Content
    */
   private final Holder holder;
@@ -88,6 +101,7 @@ public class DialogPlus {
     onDismissListener = builder.getOnDismissListener();
     onCancelListener = builder.getOnCancelListener();
     onBackPressListener = builder.getOnBackPressListener();
+    onShowListener = builder.getOnShowListener();
     isCancelable = builder.isCancelable();
 
     /**
@@ -161,7 +175,7 @@ public class DialogPlus {
 
     outAnim.setAnimationListener(new Animation.AnimationListener() {
       @Override public void onAnimationStart(Animation animation) {
-
+        isDismissing = true;
       }
 
       @Override public void onAnimationEnd(Animation animation) {
@@ -181,7 +195,6 @@ public class DialogPlus {
       }
     });
     contentContainer.startAnimation(outAnim);
-    isDismissing = true;
   }
 
   @SuppressWarnings("unused")
@@ -328,6 +341,28 @@ public class DialogPlus {
    */
   private void onAttached(View view) {
     decorView.addView(view);
+    inAnim.setAnimationListener(new Animation.AnimationListener() {
+      @Override
+      public void onAnimationStart(Animation animation) {
+
+      }
+
+      @Override
+      public void onAnimationEnd(Animation animation) {
+        decorView.post(new Runnable() {
+          @Override public void run() {
+            if (onShowListener != null) {
+              onShowListener.onShow(DialogPlus.this);
+            }
+          }
+        });
+      }
+
+      @Override
+      public void onAnimationRepeat(Animation animation) {
+
+      }
+    });
     contentContainer.startAnimation(inAnim);
 
     contentContainer.requestFocus();

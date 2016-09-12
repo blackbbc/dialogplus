@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 
+import com.orhanobut.dialogplus.listener.OnHolderListener;
+
 public class GridHolder implements HolderAdapter, AdapterView.OnItemClickListener {
 
   private final int columnNumber;
