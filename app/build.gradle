@@ -22,9 +22,6 @@ android {
     abortOnError false
   }
 }
-repositories {
-  maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-}
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
